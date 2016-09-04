@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Learn</string>
+    <string name="head">This is a heading!</string>
+    <string name="describe">This text here is a description of the image or something about what\'s written in the heading.\nIt an also contains line-breaks.</string>
+</resources>

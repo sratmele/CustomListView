@@ -1,8 +1,12 @@
 package com.example.siddhartha.learn;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -18,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ListView listView = (ListView)findViewById(R.id.customList);
+        final ListView listView = (ListView)findViewById(R.id.customList);
         List<Map<String, String>> table = new ArrayList<>();
         Map<String, String> row;
         String titles[] = "Learning by trying CustomViews using SimpleAdapter class".split(" ");
@@ -41,5 +45,12 @@ public class MainActivity extends AppCompatActivity {
         int to[] = {R.id.tvHeading, R.id.ivImage, R.id.tvDescription};
         CustomAdapter customAdapter = new CustomAdapter(this, table, R.id.customcard, from, to);
         listView.setAdapter(customAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent a = new Intent(MainActivity.this,LoadImage.class);
+                startActivity(a);
+            }
+        });
     }
 }

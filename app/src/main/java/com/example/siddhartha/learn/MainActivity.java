@@ -48,8 +48,14 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent a = new Intent(MainActivity.this,LoadImage.class);
-                startActivity(a);
+                if (position == 0) {
+                    Intent a = new Intent(MainActivity.this, LoadImage.class);
+                    startActivity(a);
+                }
+                else {
+                    Intent a = new Intent(MainActivity.this, LoadImage2.class);
+                    startActivity(a);
+                }
             }
         });
     }
